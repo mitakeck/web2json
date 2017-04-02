@@ -1,0 +1,3 @@
+[submodule "lib/higokami"]
+	path = lib/higokami
+	url = https://github.com/mitakeck/higokami.git

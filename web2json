@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'thor'
+require './lib/higokami/higokami.rb'
+
+def read_stdin
+  buffer = []
+  while (str = $stdin.gets)
+    buffer << str
+  end
+
+  # return
+  buffer.join('')
+end
+
+# Web2json
+class Web2json < Thor
+  default_command :web2json
+
+  option :file, type: :string, aliases: '-j', desc: 'json that it reference when parsing html'
+  desc 'web2json', 'parse html to json'
+  def web2json(url = '')
+    url = read_stdin if url.empty?
+
+    unless options.key?('file')
+      STDERR.print 'must be specified json file.'
+      return
+    end
+
+    higokami = Higokami.new(options[:file])
+    STDOUT.puts higokami.parse(url)
+  end
+end
+
+Web2json.start
