@@ -1,5 +1,6 @@
-require "web2json/version"
+require 'web2json/version'
+require 'web2json/generate'
 
-module Web2json
-  # Your code goes here...
-end
+# Web2json
+# module Web2json
+# end

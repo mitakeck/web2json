@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+# require File.dirname(__FILE__) + '/../lib/web2json.rb'
+# require 'web2'
+
+require File.dirname(__FILE__) + '/../lib/web2json.rb'
+
+Web2json::Generator.start
